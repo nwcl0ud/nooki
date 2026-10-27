@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nooki · a tiny pixel companion for your Windows taskbar</title>
+  <meta name="description" content="Nooki is a tiny pixel companion that lives on your Windows taskbar. Tasks with deadlines, notes, clipboard history, a focus timer, daily puzzles with friends and more. Free.">
+  <meta name="theme-color" content="#1b1c35">
+  <meta property="og:title" content="Nooki · a tiny pixel companion for your taskbar">
+  <meta property="og:description" content="A little buddy on your Windows taskbar that keeps your tasks, notes and daily puzzles with friends one click away. Free.">
+  <meta property="og:image" content="https://nwcl0ud.github.io/nooki/img/overview.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="img/logo.png">
+  <link rel="preload" href="fonts/pixelify-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/nunito-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="top" id="top">
+    <a class="brand" href="#" aria-label="Nooki home"><span class="brand-logo" data-logo="26"></span><span>Nooki</span></a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#companions">Companions</a>
+      <a href="#features">Features</a>
+      <a href="#games">Daily games</a>
+      <a href="#install">Install</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="top-actions">
+      <a class="gh" href="https://github.com/nwcl0ud/nooki" title="Nooki on GitHub" aria-label="Nooki on GitHub"><svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a>
+      <a class="btn btn-sm" data-dl href="https://github.com/nwcl0ud/nooki/releases/latest"><span data-ic="arrowDown"></span>Download</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ───────── hero: the sky, the pitch, and your companion on a taskbar ───────── -->
+    <section class="hero" aria-labelledby="heroTitle">
+      <canvas class="sky" id="sky" aria-hidden="true"></canvas>
+      <div class="hero-in">
+        <a class="pill-new" href="#features" data-tab-go="tasks"><span>New</span>Deadlines for your tasks</a>
+        <h1 id="heroTitle">A tiny pixel companion<br>for your taskbar.</h1>
+        <p class="lead">It wanders around, naps when you're away and cheers when you get things done. And it keeps your tasks, notes, clipboard, a focus timer and daily puzzles with friends one click away.</p>
+        <div class="cta">
+          <a class="btn btn-big" data-dl href="https://github.com/nwcl0ud/nooki/releases/latest">
+            <span class="btn-ic" data-ic="arrowDown"></span>
+            <span class="btn-txt"><b>Download for Windows</b><small data-dl-meta>Free</small></span>
+          </a>
+          <a class="btn btn-ghost" href="#features">See what it can do</a>
+        </div>
+        <p class="fine"><span><i data-ic="check"></i>Windows 10 &amp; 11</span><span><i data-ic="check"></i>No account needed</span><span><i data-ic="check"></i>Updates itself</span><span><i data-ic="check"></i>Your data stays on your PC</span></p>
+      </div>
+
+      <!-- a little desktop: your companion lives on the taskbar -->
+      <div class="desk" id="desk">
+        <canvas class="stage" id="stage" aria-label="Your companion. Click it, drag it, shift-click it or hold the right mouse button on it."></canvas>
+        <div class="bubble" id="bubble" role="status" aria-live="polite"></div>
+        <p class="try" id="tryHint"><span data-ic="mouse"></span><span id="tryText">Try it: click, drag, shift + click or hold right-click on your companion</span></p>
+        <div class="dock" id="dock">
+          <button class="dock-head" id="dockHead" aria-expanded="true"><span data-ic="todo"></span><b>Tasks</b><span class="dock-n" id="dockN">3</span><span class="dock-chev" data-ic="chevronDown"></span></button>
+          <ul class="dock-list" id="dockList"></ul>
+        </div>
+        <div class="taskbar" aria-hidden="true">
+          <div class="tb-icons">
+            <i class="tb-start"><b></b><b></b><b></b><b></b></i>
+            <i class="tb-ic" data-ic="search"></i>
+            <i class="tb-ic tb-folder" data-ic="folder"></i>
+            <i class="tb-ic tb-web" data-ic="globe"></i>
+            <i class="tb-ic tb-music" data-ic="music"></i>
+            <i class="tb-ic tb-nooki on"><span data-logo="20"></span></i>
+          </div>
+          <div class="tb-tray"><span data-ic="volume"></span><span class="tb-clock"><b id="tbTime">--:--</b><small id="tbDate"></small></span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────── companions ───────── -->
+    <section class="sec" id="companions" aria-labelledby="compTitle">
+      <div class="sec-head">
+        <p class="eyebrow"><span data-ic="paw"></span>Companions</p>
+        <h2 id="compTitle">Pick your companion</h2>
+        <p>23 of them, each with its own colors and a trick of its own. Go on, pick one: the whole page (and the app) takes on its colors.</p>
+      </div>
+      <div class="comp">
+        <article class="comp-card" id="compCard" aria-live="polite">
+          <div class="comp-stage"><canvas id="compCanvas" width="160" height="160" aria-hidden="true"></canvas></div>
+          <div class="comp-info">
+            <p class="comp-species" id="compSpecies"></p>
+            <h3 id="compName"></h3>
+            <p class="comp-desc" id="compDesc"></p>
+            <ul class="tricks" id="compTricks"></ul>
+          </div>
+        </article>
+        <div class="comp-grid" id="compGrid" role="listbox" aria-label="Companions"></div>
+      </div>
+    </section>
+
+    <!-- ───────── a tour of the app ───────── -->
+    <section class="sec" id="features" aria-labelledby="featTitle">
+      <div class="sec-head">
+        <p class="eyebrow"><span data-ic="sparkles"></span>Features</p>
+        <h2 id="featTitle">Everything in one cozy place</h2>
+        <p>One window for the small things of your day. Your companion keeps it company on the taskbar.</p>
+      </div>
+      <div class="tour">
+        <div class="tabs" role="tablist" aria-label="Parts of Nooki" id="tabs"></div>
+        <div class="tour-body">
+          <figure class="window">
+            <img id="tourImg" src="img/overview.png" width="1800" height="1052" alt="">
+          </figure>
+          <div class="tour-text" id="tourText"></div>
+        </div>
+      </div>
+      <div class="cards" id="featureCards"></div>
+    </section>
+
+    <!-- ───────── daily games ───────── -->
+    <section class="sec" id="games" aria-labelledby="gamesTitle">
+      <div class="sec-head">
+        <p class="eyebrow"><span data-ic="gamepad"></span>Daily games</p>
+        <h2 id="gamesTitle">Six puzzles a day, the same for everyone</h2>
+        <p>Play in a few minutes, then see how your friends did. Keep your streak going and unlock frames and titles for your profile.</p>
+      </div>
+      <div class="games">
+        <div class="game-grid" id="gameGrid"></div>
+        <aside class="friends-card" aria-label="Example: friends today">
+          <div class="fc-head"><span data-ic="users"></span>Friends today<span class="fc-day">Zip</span></div>
+          <ol class="fc-list">
+            <li><span class="medal m1">1</span><img src="pets/gengar.png" alt=""><b>Lena</b><em class="ttl" style="--th:140">GAMER</em><span class="t">0:50</span></li>
+            <li class="me"><span class="medal m2">2</span><img src="pets/umbreon.png" alt="" data-mine><b>You</b><span class="t">1:12</span></li>
+            <li><span class="medal m3">3</span><img src="pets/greninja.png" alt=""><b>Noah</b><em class="ttl" style="--th:40">NOOKI FAN</em><span class="t">1:35</span></li>
+            <li class="nope"><span class="medal"></span><img src="pets/pikachu.png" alt=""><b>Jonas</b><span class="t">not yet</span></li>
+          </ol>
+          <p class="fc-foot">Add friends with a code like <code>MIKA-7Q2X</code>. See who's online and what they're playing, and their companions drop by on your desktop now and then.</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ───────── on the desktop ───────── -->
+    <section class="sec" id="desktop" aria-labelledby="deskTitle">
+      <div class="sec-head">
+        <p class="eyebrow"><span data-ic="hand"></span>On your desktop</p>
+        <h2 id="deskTitle">Your companion does more than look cute</h2>
+        <p>It's the shortcut to everything. A few things to try once it's on your taskbar:</p>
+      </div>
+      <div class="moves" id="moves"></div>
+    </section>
+
+    <!-- ───────── install ───────── -->
+    <section class="sec" id="install" aria-labelledby="installTitle">
+      <div class="sec-head">
+        <p class="eyebrow"><span data-ic="arrowDown"></span>Install</p>
+        <h2 id="installTitle">Up and running in a minute</h2>
+      </div>
+      <ol class="steps">
+        <li class="step">
+          <span class="step-n">1</span>
+          <h3>Download</h3>
+          <p>One file, about 115 MB. No account, no sign-up.</p>
+          <a class="btn" data-dl href="https://github.com/nwcl0ud/nooki/releases/latest"><span data-ic="arrowDown"></span>Download Nooki</a>
+        </li>
+        <li class="step">
+          <span class="step-n">2</span>
+          <h3>Open it</h3>
+          <p>Nooki isn't code-signed yet, so Windows may not know it. Click <b>More info</b>, then <b>Run anyway</b>.</p>
+          <div class="smartscreen" aria-hidden="true">
+            <div class="ss-bar">Windows protected your PC</div>
+            <p>Microsoft Defender SmartScreen prevented an unrecognized app from starting.</p>
+            <span class="ss-link">More info</span>
+            <div class="ss-btns"><span class="ss-run">Run anyway</span><span>Don't run</span></div>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-n">3</span>
+          <h3>Say hi</h3>
+          <p>Your companion hops onto your taskbar. Double-click it to open Nooki. It starts with Windows and keeps itself up to date.</p>
+          <div class="hi" aria-hidden="true"><canvas id="hiCanvas" width="96" height="72"></canvas><span class="hi-bubble">hi!</span><i class="hi-bar"></i></div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ───────── faq ───────── -->
+    <section class="sec" id="faq" aria-labelledby="faqTitle">
+      <div class="sec-head">
+        <p class="eyebrow"><span data-ic="bulb"></span>FAQ</p>
+        <h2 id="faqTitle">Good questions</h2>
+      </div>
+      <div class="faq">
+        <details open><summary>Is Nooki free?</summary><p>Yes. Free to download, free to use, no ads and no account.</p></details>
+        <details><summary>Why does Windows warn me when I open it?</summary><p>Windows shows that warning for apps without a paid code-signing certificate, and Nooki doesn't have one yet. Click <b>More info</b>, then <b>Run anyway</b>. You only see it once.</p></details>
+        <details><summary>What happens with my data?</summary><p>Your tasks, notes, clipboard, screen time and listening stats stay on your PC, in <code>%APPDATA%\Nooki</code>. Friends is off until you turn it on. Then the Nooki server knows your name, your companion, your profile and your daily game results, and only your friends see them. The weather only sends your city's position to Open-Meteo.</p></details>
+        <details><summary>Will it get in my way?</summary><p>It's made not to. Nooki hides while a game or video runs fullscreen, and you can hide your companion from the tray icon anytime. Reminders and nudges can be switched off one by one in Settings.</p></details>
+        <details><summary>How do updates work?</summary><p>Nooki looks for a new version when it starts and every few hours. It downloads it quietly and installs it the next time Nooki starts. Your tasks, notes and companions stay.</p></details>
+        <details><summary>How do I uninstall it?</summary><p>Windows Settings → Apps → Installed apps → Nooki → Uninstall. Your data stays in <code>%APPDATA%\Nooki</code>, in case you come back. Delete that folder to remove it too.</p></details>
+        <details><summary>Is there a version for Mac or Linux?</summary><p>Not yet. Nooki is made for Windows 10 and 11.</p></details>
+      </div>
+    </section>
+
+    <section class="sec end" aria-label="Download">
+      <div class="end-in">
+        <span class="end-logo" data-logo="64"></span>
+        <h2>Some company for your desktop?</h2>
+        <a class="btn btn-big" data-dl href="https://github.com/nwcl0ud/nooki/releases/latest">
+          <span class="btn-ic" data-ic="arrowDown"></span>
+          <span class="btn-txt"><b>Download for Windows</b><small data-dl-meta>Free · Windows 10 &amp; 11</small></span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="foot-in">
+      <span class="brand"><span data-logo="22"></span><span>Nooki</span></span>
+      <p>Sprites from the <a href="https://sprites.pmdcollab.org">PMD Sprite Collab</a>. Weather by <a href="https://open-meteo.com">Open-Meteo</a>. Built with <a href="https://www.electronjs.org">Electron</a>.</p>
+      <p class="foot-links"><a href="https://github.com/nwcl0ud/nooki">GitHub</a><a href="https://github.com/nwcl0ud/nooki/releases">All versions</a></p>
+    </div>
+  </footer>
+
+  <!-- after a click on Download: what comes next -->
+  <dialog class="modal" id="dlModal" aria-labelledby="dlModalTitle">
+    <form method="dialog"><button class="modal-x" aria-label="Close"><span data-ic="x"></span></button></form>
+    <div id="dlModalBody"></div>
+  </dialog>
+
+  <script src="js/icons.js"></script>
+  <script src="js/theme-vars.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

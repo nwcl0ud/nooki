@@ -1,9 +1,9 @@
 <p align="center">
-  <img src=".github/readme/banner.gif" alt="Nooki: a tiny pixel companion for your Windows desktop" width="960">
+  <img src="docs/img/banner.gif" alt="Nooki: a tiny pixel companion for your Windows desktop" width="960">
 </p>
 
 <p align="center">
-  <a href="https://github.com/nwcl0ud/nooki/releases/latest"><img src=".github/readme/download.png" alt="Download Nooki for Windows" height="60"></a>
+  <a href="https://github.com/nwcl0ud/nooki/releases/latest"><img src="docs/img/download.png" alt="Download Nooki for Windows" height="60"></a>
 </p>
 
 <p align="center">
@@ -14,6 +14,7 @@
 </p>
 
 <p align="center">
+  <a href="https://nwcl0ud.github.io/nooki/"><b>Website</b></a> ·
   <a href="#companions">Companions</a> ·
   <a href="#tasks-notes-and-focus">Tasks</a> ·
   <a href="#daily-games-with-friends">Daily games</a> ·
@@ -27,7 +28,7 @@
 Nooki is a tiny pixel companion that lives on your taskbar. It wanders around, naps when you're away and cheers when you finish something. It also keeps the small things of your day in one cozy place: tasks, notes, your clipboard, a focus timer, daily puzzles with friends and a few tools you'll keep using. All of it stays on your PC.
 
 <p align="center">
-  <img src=".github/readme/overview.png" alt="The Nooki window: greeting, weather, tasks, focus timer and friends" width="900">
+  <img src="docs/img/overview.png" alt="The Nooki window: greeting, weather, tasks, focus timer and friends" width="900">
 </p>
 
 ## Companions
@@ -35,7 +36,7 @@ Nooki is a tiny pixel companion that lives on your taskbar. It wanders around, n
 Pick one of **23 companions**. Each one paints the whole app in its colors and has a trick of its own: Pikachu crackles with static, Snorlax makes the ground shake when it lands, Mudkip reminds you to drink water, Jirachi grants one wish a day, Umbreon glows at night. Feed them, play with them and level up your bond.
 
 <p align="center">
-  <img src=".github/readme/companions.png" alt="The companions to choose from" width="900">
+  <img src="docs/img/companions.png" alt="The companions to choose from" width="900">
 </p>
 
 Your companion on the desktop:
@@ -55,7 +56,7 @@ Your companion on the desktop:
 Write a task and it's there. Type `!` for important, `#today` for today and `@fri 15:00` for a deadline: your companion reminds you a day before, an hour before and when time's up. The task list also sits on your taskbar, one click away.
 
 <p align="center">
-  <img src=".github/readme/tasks.png" alt="Tasks with deadlines" width="900">
+  <img src="docs/img/tasks.png" alt="Tasks with deadlines" width="900">
 </p>
 
 - **Quick notes** that open right where you are (<kbd>Ctrl</kbd> <kbd>Alt</kbd> <kbd>N</kbd>)
@@ -70,8 +71,8 @@ Six small puzzles a day, the same for everyone: **Chrono**, **Rulebreaker**, **H
 
 <table>
   <tr>
-    <td width="50%"><img src=".github/readme/social.png" alt="Today's games and the table with friends"></td>
-    <td width="50%"><img src=".github/readme/zip.png" alt="Zip, one of the daily games"></td>
+    <td width="50%"><img src="docs/img/social.png" alt="Today's games and the table with friends"></td>
+    <td width="50%"><img src="docs/img/zip.png" alt="Zip, one of the daily games"></td>
   </tr>
 </table>
 
@@ -81,8 +82,8 @@ Make your profile yours with page themes, picture frames and titles you unlock b
 
 <table>
   <tr>
-    <td width="50%"><img src=".github/readme/screentime.png" alt="Screen time"></td>
-    <td width="50%"><img src=".github/readme/spotistats.png" alt="SpotiStats"></td>
+    <td width="50%"><img src="docs/img/screentime.png" alt="Screen time"></td>
+    <td width="50%"><img src="docs/img/spotistats.png" alt="SpotiStats"></td>
   </tr>
   <tr>
     <td><b>Screen time</b>: how long you've been at your PC and where the time went (games, browsers, everything else), by day, week and month.</td>
@@ -127,6 +128,6 @@ You can change all of them in Settings.
 Sprites from the [PMD Sprite Collab](https://sprites.pmdcollab.org). Weather by [Open-Meteo](https://open-meteo.com). Built with [Electron](https://www.electronjs.org).
 
 <p align="center">
-  <img src=".github/readme/logo.png" alt="" width="32"><br>
+  <img src="docs/img/logo.png" alt="" width="32"><br>
   <sub>Made with care for everyone who likes a little company on their desktop.</sub>
 </p>
