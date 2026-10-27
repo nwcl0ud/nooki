@@ -8,7 +8,7 @@
   const pick = (list) => list[Math.floor(Math.random() * list.length)];
   const REPO = 'nwcl0ud/nooki';
   // when GitHub can't be asked (offline, too many visits): this one still works and updates itself
-  const FALLBACK = { version: '2.3.3', url: `https://github.com/${REPO}/releases/download/v2.3.3/Nooki-Setup-2.3.3.exe`, size: 121066263 };
+  const FALLBACK = { version: '2.3.4', url: `https://github.com/${REPO}/releases/download/v2.3.4/Nooki-Setup-2.3.4.exe`, size: 121066002 };
   const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const saved = {
     get(k) { try { return localStorage.getItem(k); } catch { return null; } },
