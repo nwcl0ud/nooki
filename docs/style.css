@@ -329,6 +329,8 @@ p { margin: 0; }
 .faq details[open] summary::after { transform: rotate(225deg) translate(-2px, -2px); }
 .faq summary:hover { color: var(--accent-2); }
 .faq details p { padding: 0 18px 18px; color: var(--muted); font-size: 15.5px; }
+.faq-steps { display: grid; gap: 10px; margin: -6px 0 0; padding: 0 18px 18px 40px; color: var(--muted); font-size: 15.5px; }
+.faq-steps b { color: var(--text); }
 
 /* ── the end ── */
 .end { padding-top: 80px; padding-bottom: 96px; background: radial-gradient(60% 80% at 50% 100%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 70%), var(--bg); }

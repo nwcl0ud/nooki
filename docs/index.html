@@ -189,6 +189,14 @@
       <div class="faq">
         <details open><summary>Is Nooki free?</summary><p>Yes. Free to download, free to use, no ads and no account.</p></details>
         <details><summary>Why does Windows warn me when I open it?</summary><p>Windows shows that warning for apps without a paid code-signing certificate, and Nooki doesn't have one yet. Click <b>More info</b>, then <b>Run anyway</b>. You only see it once.</p></details>
+        <details id="setup-help"><summary>The setup doesn't open. What now?</summary>
+          <p>If you double-click it and only see a short loading cursor, Windows or an antivirus stopped it quietly. Three things help:</p>
+          <ol class="faq-steps">
+            <li><b>Smart App Control.</b> Open <b>Windows Security → App &amp; browser control → Smart App Control settings</b>. When it's <b>On</b>, Windows blocks every app without a paid code-signing certificate, Nooki included, often with just a small notification. Turning it off lets Nooki run. On some Windows versions it can't be turned back on later, so that's your call.</li>
+            <li><b>Antivirus.</b> If you use one besides Windows Security, look in its quarantine or blocked list and allow <code>Nooki-Setup</code>.</li>
+            <li><b>The ZIP version, no setup needed.</b> <a data-dl-zip href="https://github.com/nwcl0ud/nooki/releases/latest">Download the ZIP</a>, right-click it → <b>Extract all</b>, then open <b>Nooki.exe</b> in that folder. It tells you when there's a new version.</li>
+          </ol>
+        </details>
         <details><summary>What happens with my data?</summary><p>Your tasks, notes, clipboard, screen time and listening stats stay on your PC, in <code>%APPDATA%\Nooki</code>. Friends is off until you turn it on. Then the Nooki server knows your name, your companion, your profile and your daily game results, and only your friends see them. The weather only sends your city's position to Open-Meteo.</p></details>
         <details><summary>Will it get in my way?</summary><p>It's made not to. Nooki hides while a game or video runs fullscreen, and you can hide your companion from the tray icon anytime. Reminders and nudges can be switched off one by one in Settings.</p></details>
         <details><summary>How do updates work?</summary><p>Nooki looks for a new version when it starts and every few hours. It downloads it quietly and installs it the next time Nooki starts. Your tasks, notes and companions stay.</p></details>

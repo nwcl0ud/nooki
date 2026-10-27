@@ -8,7 +8,8 @@
   const pick = (list) => list[Math.floor(Math.random() * list.length)];
   const REPO = 'nwcl0ud/nooki';
   // when GitHub can't be asked (offline, too many visits): this one still works and updates itself
-  const FALLBACK = { version: '2.3.4', url: `https://github.com/${REPO}/releases/download/v2.3.4/Nooki-Setup-2.3.4.exe`, size: 121066002 };
+  // (set to the newest release whenever one goes out, see RELEASING.md)
+  const FALLBACK = { version: '2.3.6', url: `https://github.com/${REPO}/releases/download/v2.3.6/Nooki-Setup-2.3.6.exe`, size: 127176574, zip: `https://github.com/${REPO}/releases/download/v2.3.6/Nooki-2.3.6-win.zip` };
   const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const saved = {
     get(k) { try { return localStorage.getItem(k); } catch { return null; } },
@@ -31,6 +32,7 @@
   function applyRelease(r) {
     release = r;
     for (const a of $$('[data-dl]')) a.href = r.url;
+    for (const a of $$('[data-dl-zip]')) if (r.zip) a.href = r.zip;
     for (const m of $$('[data-dl-meta]')) m.textContent = `Free · v${r.version} · ${mb(r.size)}`;
   }
   async function loadRelease() {
@@ -45,7 +47,8 @@
       const j = await res.json();
       const a = (j.assets || []).find(x => /^Nooki-Setup-[\d.]+\.exe$/.test(x.name));
       if (!a) throw new Error('no installer');
-      const r = { version: String(j.tag_name).replace(/^v/, ''), url: a.browser_download_url, size: a.size };
+      const z = (j.assets || []).find(x => /^Nooki-[\d.]+-win\.zip$/.test(x.name));
+      const r = { version: String(j.tag_name).replace(/^v/, ''), url: a.browser_download_url, size: a.size, zip: z ? z.browser_download_url : '' };
       try { sessionStorage.setItem('nooki-release', JSON.stringify({ at: Date.now(), r })); } catch {}
       applyRelease(r);
     } catch { /* the fallback stays */ }
@@ -85,9 +88,10 @@
         <li><b class="n">2</b><span>If Windows says it protected your PC: click <b>More info</b>, then <b>Run anyway</b>. Nooki isn't code-signed yet.</span></li>
         <li><b class="n">3</b><span>Your companion hops onto your taskbar. Double-click it to open Nooki.</span></li>
       </ol>
-      <small>Nothing happening? <a href="${esc(release.url)}">Start the download again</a> or get it from <a href="https://github.com/${REPO}/releases/latest">GitHub</a>.</small>`), 350);
+      <small>Download didn't start? <a href="${esc(release.url)}">Try again</a>. The setup doesn't open? <a href="#setup-help" data-help>Here's what helps</a>.</small>`), 350);
   });
   modal.addEventListener('click', async (e) => {
+    if (e.target.closest('[data-help]')) { modal.close(); $('#setup-help').open = true; return; } // the link scrolls there by itself
     if (e.target.closest('[data-copy]')) {
       try { await navigator.clipboard.writeText(location.href.split('#')[0]); e.target.closest('[data-copy]').innerHTML = `${icon('check')}Copied!`; } catch {}
     }
