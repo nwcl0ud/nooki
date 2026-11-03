@@ -9,7 +9,7 @@
   const REPO = 'nwcl0ud/nooki';
   // when GitHub can't be asked (offline, too many visits): this one still works and updates itself
   // (set to the newest release whenever one goes out, see RELEASING.md)
-  const FALLBACK = { version: '2.3.9', url: `https://github.com/${REPO}/releases/download/v2.3.9/Nooki-Setup-2.3.9.exe`, size: 127182482, zip: `https://github.com/${REPO}/releases/download/v2.3.9/Nooki-2.3.9-win.zip` };
+  const FALLBACK = { version: '2.5.0', url: `https://github.com/${REPO}/releases/download/v2.5.0/Nooki-Setup-2.5.0.exe`, size: 127202988, zip: `https://github.com/${REPO}/releases/download/v2.5.0/Nooki-2.5.0-win.zip` };
   const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const saved = {
     get(k) { try { return localStorage.getItem(k); } catch { return null; } },
@@ -520,8 +520,8 @@
       li: ["A greeting with your city's weather and a sky that matches it", "Today's tasks and a focus timer to start right away", "Your friends on the side: who's online and what they're playing"] },
     { id: 'tasks', label: 'Tasks', icon: 'todo', img: 'tasks', h: 'Tasks with deadlines', p: 'Write it down, and Nooki makes sure it gets done.',
       li: ['Type <kbd>!</kbd> for important, <kbd>#today</kbd> for today and <kbd>@fri 15:00</kbd> for a deadline', "Reminders a day before, an hour before and when time's up", 'A task list on your taskbar, one click away', 'Your companion cheers when you tick one off'] },
-    { id: 'games', label: 'Daily games', icon: 'gamepad', img: 'social', h: 'Six puzzles a day', p: 'The same puzzles for everyone, new ones at midnight. A few minutes, then see how your friends did.',
-      li: ['Chrono, Rulebreaker, Higher, 500%, Zip and Binary Breaker', "Today's table: rank everyone by any game", 'Streaks, badges, frames and titles for your profile'] },
+    { id: 'games', label: 'Daily games', icon: 'gamepad', img: 'social', h: 'Eight puzzles a day', p: 'The same puzzles for everyone, new ones at midnight. A few minutes, then see how your friends did.',
+      li: ['Chrono, Rulebreaker, Higher, 500%, Zip, Binary Breaker, Nonogram and Quartett (in German)', "Today's table: rank everyone by any game", 'Streaks, badges, frames and titles for your profile'] },
     { id: 'screen', label: 'Screen time', icon: 'hourglass', img: 'screentime', h: 'Where did the day go?', p: 'An honest look at your time at the PC, without sending it anywhere.',
       li: ["How long you've been at your PC, by day, week and month", 'Games, browsers and everything else, with your top apps', 'Only the window in front counts, so nothing counts twice'] },
     { id: 'music', label: 'SpotiStats', icon: 'music', img: 'spotistats', h: 'Your music, counted', p: 'Nooki listens along while it runs and keeps score.',
