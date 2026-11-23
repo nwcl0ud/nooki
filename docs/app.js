@@ -9,7 +9,7 @@
   const REPO = 'nwcl0ud/nooki';
   // when GitHub can't be asked (offline, too many visits): this one still works and updates itself
   // (set to the newest release whenever one goes out, see RELEASING.md)
-  const FALLBACK = { version: '2.6.0', url: `https://github.com/${REPO}/releases/download/v2.6.0/Nooki-Setup-2.6.0.exe`, size: 127225715, zip: `https://github.com/${REPO}/releases/download/v2.6.0/Nooki-2.6.0-win.zip` };
+  const FALLBACK = { version: '2.6.1', url: `https://github.com/${REPO}/releases/download/v2.6.1/Nooki-Setup-2.6.1.exe`, size: 127230599, zip: `https://github.com/${REPO}/releases/download/v2.6.1/Nooki-2.6.1-win.zip` };
   const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const saved = {
     get(k) { try { return localStorage.getItem(k); } catch { return null; } },
