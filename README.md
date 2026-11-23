@@ -119,7 +119,7 @@ You can change all of them in Settings.
 ## Privacy
 
 - Your tasks, notes, clipboard, screen time and listening stats stay on your PC, in `%APPDATA%\Nooki`.
-- Friends is off until you turn it on. Then the Nooki server knows your name, your companion, your profile, whether you're online and your daily game results. Only your friends see them.
+- Friends is off until you turn it on. Then the Nooki server knows your name, your companion, your profile, whether you're online and your daily game results. Your friends see them. Nooki's developer can look at profiles and at game statistics added up across all players, never who played what.
 - The weather only sends your city's position to [Open-Meteo](https://open-meteo.com).
 - The Discord status can be switched off in Settings.
 
